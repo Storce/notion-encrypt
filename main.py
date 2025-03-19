@@ -3,18 +3,14 @@ from notion_client import Client
 from dotenv import load_dotenv
 import encrypt
 
-# Load environment variables from .env file
 load_dotenv()
-
-# Set your Notion integration token and parent page ID.
-NOTION_TOKEN = os.environ.get("NOTION_TOKEN")  # e.g., "secret_..."
-PARENT_PAGE_ID = os.environ.get("PARENT_PAGE_ID")  # The parent page acting as your "document"
-CHILD_PAGE_ID = os.environ.get("CHILD_PAGE_ID")  # The child page acting as your "document"
+NOTION_TOKEN = os.environ.get("NOTION_TOKEN")
+PARENT_PAGE_ID = os.environ.get("PARENT_PAGE_ID")
+CHILD_PAGE_ID = os.environ.get("CHILD_PAGE_ID")
 print(NOTION_TOKEN)
 print(PARENT_PAGE_ID)
 print(CHILD_PAGE_ID)
 
-# Initialize the Notion client.
 notion = Client(auth=NOTION_TOKEN)
 
 def get_child_pages(parent_id: str) -> list:
